@@ -230,7 +230,7 @@ async function pathToBinary(): Promise<string> {
 			try {
 				await installer.install(installDir);
 			} catch (err) {
-				vscode.window.showErrorMessage(err);
+				console.log(err);
 				throw err;
 			} finally {
 				await installer.cleanupZips(installDir);

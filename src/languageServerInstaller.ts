@@ -38,14 +38,6 @@ export class LanguageServerInstaller {
 			console.error(err);
 			throw err;
 		}
-
-		// Do not wait on the showInformationMessage
-		vscode.window.showInformationMessage(`Installed terraform-ls ${currentRelease.version}.`, "View Changelog")
-			.then(selected => {
-				if (selected === "View Changelog") {
-					return vscode.env.openExternal(vscode.Uri.parse(`https://github.com/hashicorp/terraform-ls/releases/tag/v${currentRelease.version}`));
-				}
-			})
 	}
 
 	async installPkg(release: Release, installDir: string, userAgent: string): Promise<void> {
